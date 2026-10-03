@@ -1,0 +1,14 @@
+<section class="product-section" aria-labelledby="top-products-heading">
+  <div class="section-heading">
+    <h2 id="top-products-heading">Top Products</h2>
+    <p><%= products.length %> styles found</p>
+  </div>
+  <div class="product-grid">
+    <% products.forEach(product => { %>
+      <%- include('product-card', { product }) %>
+    <% }) %>
+  </div>
+  <% if (products.length === 0) { %>
+    <p class="empty-state">Chưa có sản phẩm nổi bật.</p>
+  <% } %>
+</section>

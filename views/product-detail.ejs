@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= product.name %> | Cake Shop</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  <main class="container detail-main">
+    <p class="breadcrumb"><a href="/">Trang chủ</a> / <%= product.name %></p>
+    <article class="product-detail">
+      <div class="detail-image">
+        <img src="<%= product.image %>" alt="<%= product.name %>" onerror="this.onerror=null;this.src='/images/placeholder.svg';">
+        <% if (product.tag) { %><span class="sale-tag">SALE</span><% } %>
+      </div>
+      <div class="detail-info">
+        <p class="eyebrow">CAKE SHOP</p>
+        <h1><%= product.name %></h1>
+        <div class="prices">
+          <% if (product.old_price != null) { %>
+            <del><%= Number(product.old_price).toLocaleString('vi-VN') %> đ</del>
+          <% } %>
+          <strong><%= Number(product.price).toLocaleString('vi-VN') %> đ</strong>
+        </div>
+        <h2>Mô tả sản phẩm</h2>
+        <p class="description"><%= product.description || 'Thông tin sản phẩm đang được cập nhật.' %></p>
+        <a class="button" href="/">Quay lại trang chủ</a>
+      </div>
+    </article>
+  </main>
+  <%- include('partials/footer') %>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cake Shop | Bánh ngon mỗi ngày</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <%- include('partials/banner') %>
+    <div class="container" id="products">
+      <%- include('partials/new-products', { products: newProducts }) %>
+      <%- include('partials/top-products', { products: topProducts }) %>
+    </div>
+  </main>
+  <%- include('partials/footer') %>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
